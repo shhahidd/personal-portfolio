@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- DOM Elements ---
   const projectsGrid = document.getElementById('projects-grid');
   const loadingSpinner = document.getElementById('loading-spinner');
   const filterTabs = document.getElementById('filter-tabs');
@@ -15,27 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let allProjects = [];
 
-  // --- Mobile Navigation Toggle ---
   menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
   });
 
-  // Close menu when clicking nav link
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('active');
-      
-      // Update active state manually on click
       navLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
     });
   });
 
-  // --- Highlight Nav Link on Scroll ---
   const sections = document.querySelectorAll('section');
   window.addEventListener('scroll', () => {
     let current = '';
-    const scrollPos = window.scrollY + 100; // Offset to trigger early
+    const scrollPos = window.scrollY + 100;
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
@@ -55,10 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- Fetch Projects from API ---
   async function fetchProjects() {
     try {
-      // In serverless environments, we query relative endpoint /api/projects
       const response = await fetch('/api/projects');
       if (!response.ok) {
         throw new Error('Failed to retrieve projects from database.');
@@ -82,9 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- Render Projects to DOM ---
   function renderProjects(projectsToRender) {
-    // Clear projects grid except the spinner if it's somehow still there
     const spinner = document.getElementById('loading-spinner');
     projectsGrid.innerHTML = '';
     if (spinner) {
@@ -104,12 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('article');
       card.className = 'project-card glass';
 
-      // Create tag chips HTML
       const tagsHTML = project.tags
         .map(tag => `<span class="project-tag">${tag.trim()}</span>`)
         .join('');
 
-      // Safe GitHub link render
       const githubLinkHTML = project.github_link && project.github_link !== '#'
         ? `<a href="${project.github_link}" target="_blank" rel="noopener noreferrer" class="project-link">
              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -119,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
            </a>`
         : '';
 
-      // Safe Demo link render
       const demoLinkHTML = project.live_link && project.live_link !== '#'
         ? `<a href="${project.live_link}" target="_blank" rel="noopener noreferrer" class="project-link">
              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -151,11 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Category Filter Event Listener ---
   filterTabs.addEventListener('click', (e) => {
     if (!e.target.classList.contains('filter-btn')) return;
 
-    // Toggle active classes on tabs
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.classList.remove('active');
     });
@@ -171,11 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- Contact Form Submission ---
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Change button state to loading
     submitBtn.disabled = true;
     btnText.classList.add('hidden');
     loader.classList.remove('hidden');
@@ -207,18 +190,15 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Contact error:', error);
       showToast(`❌ Error: ${error.message}`, 'error');
     } finally {
-      // Revert button state
       submitBtn.disabled = false;
       btnText.classList.remove('hidden');
       loader.classList.add('hidden');
     }
   });
 
-  // --- Notification Toast Utility ---
-  function showToast(message, type) {
+  fn_showToast = (message, type) => {
     toastMessage.textContent = message;
     
-    // Customize border/color based on type
     const contentBox = toast.querySelector('.toast-content');
     const icon = toast.querySelector('.toast-icon');
     
@@ -239,6 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 
-  // --- Initialize Fetch ---
+  function showToast(message, type) {
+    fn_showToast(message, type);
+  }
+
   fetchProjects();
 });

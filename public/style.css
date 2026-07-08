@@ -1,9 +1,9 @@
-/* Modern CSS Reset & Variable Definitions */
+
 :root {
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
-  /* HSL Color System - Premium Space Theme */
+  
   --bg-dark: HSL(224, 71%, 4%);
   --bg-surface: rgba(13, 20, 38, 0.45);
   --bg-card: rgba(20, 30, 55, 0.65);
@@ -51,7 +51,7 @@ body {
   min-height: 100vh;
 }
 
-/* Ambient glow circles for background */
+
 .glow-bg {
   position: fixed;
   width: 50vw;
@@ -76,7 +76,7 @@ body {
   background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
 }
 
-/* Custom Scrollbar */
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -92,7 +92,7 @@ body {
   background: var(--color-primary);
 }
 
-/* Typography elements */
+
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -104,7 +104,7 @@ a {
   text-decoration: none;
 }
 
-/* Glassmorphism utility */
+
 .glass {
   background: var(--bg-surface);
   backdrop-filter: blur(16px) saturate(120%);
@@ -120,7 +120,7 @@ a {
   box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
 }
 
-/* Header & Navigation */
+
 header {
   position: fixed;
   top: 0;
@@ -202,7 +202,7 @@ header {
   cursor: pointer;
 }
 
-/* Button UI system */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -240,7 +240,7 @@ header {
   transform: translateY(-2px);
 }
 
-/* Section Header Styles */
+
 .section-header {
   text-align: center;
   max-width: 600px;
@@ -260,7 +260,7 @@ header {
   font-size: 1.1rem;
 }
 
-/* Hero Section */
+
 .hero-section {
   min-height: 90vh;
   display: flex;
@@ -317,7 +317,7 @@ header {
   gap: 1.5rem;
 }
 
-/* About & Skills Section */
+
 .about-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -388,14 +388,14 @@ header {
   transform: translateY(-2px);
 }
 
-/* Projects Section */
+
 .projects-section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 6rem 2rem;
 }
 
-/* Filter controls */
+
 .filter-tabs {
   display: flex;
   justify-content: center;
@@ -423,7 +423,7 @@ header {
   box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
-/* Projects Grid & Project Cards */
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -527,7 +527,7 @@ header {
   color: var(--color-secondary);
 }
 
-/* Loading Spinner and state messaging */
+
 .loading-spinner {
   grid-column: 1 / -1;
   display: flex;
@@ -555,7 +555,7 @@ header {
   padding: 4rem 0;
 }
 
-/* Contact Section */
+
 .contact-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -699,7 +699,7 @@ a.info-item:hover .info-icon {
   font-size: 1rem;
 }
 
-/* Button loader state */
+
 .btn-submit .loader {
   border: 2px solid transparent;
   border-top-color: white;
@@ -714,7 +714,7 @@ a.info-item:hover .info-icon {
   display: none !important;
 }
 
-/* Footer Section */
+
 footer {
   border-top: 1px solid var(--border-glass);
   background: rgba(10, 15, 30, 0.8);
@@ -729,7 +729,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Notification Toast */
+
 .notification-toast {
   position: fixed;
   bottom: 2rem;
@@ -774,7 +774,7 @@ footer {
   color: #fff;
 }
 
-/* Keyframes / Animations */
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -786,7 +786,7 @@ footer {
   100% { opacity: 0.8; }
 }
 
-/* Responsive Breakpoints */
+
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr;

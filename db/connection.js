@@ -4,33 +4,35 @@ const path = require('path');
 
 let db;
 
-// Helper to convert SQLite '?' placeholders to PostgreSQL '$1, $2, ...' placeholders
-function convertPlaceholders(sql) {
+function convertSqliteToPostgres(sql) {
+  let pgSql = sql
+    .replace(/INTEGER PRIMARY KEY AUTOINCREMENT/gi, 'SERIAL PRIMARY KEY')
+    .replace(/DATETIME DEFAULT CURRENT_TIMESTAMP/gi, 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP')
+    .replace(/DROP TABLE IF EXISTS ([a-z0-9_]+)/gi, 'DROP TABLE IF EXISTS $1 CASCADE');
+  
   let index = 1;
-  return sql.replace(/\?/g, () => `$${index++}`);
+  return pgSql.replace(/\?/g, () => `$${index++}`);
 }
 
 if (process.env.DATABASE_URL) {
-  // Production Environment: Connect to Cloud PostgreSQL (Neon/Supabase)
   console.log('Production Environment Detected: Connecting to Cloud PostgreSQL...');
   
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
-      rejectUnauthorized: false // Required for serverless hosting environments connecting to SSL-secured cloud DBs
+      rejectUnauthorized: false
     }
   });
 
-  // Emulate sqlite3 database methods so backend API and seed scripts don't need modifications
   db = {
     all: (sql, params, callback) => {
-      const pgSql = convertPlaceholders(sql);
+      const pgSql = convertSqliteToPostgres(sql);
       pool.query(pgSql, params, (err, res) => {
         callback(err, res ? res.rows : null);
       });
     },
     run: function(sql, params, callback) {
-      const pgSql = convertPlaceholders(sql);
+      const pgSql = convertSqliteToPostgres(sql);
       pool.query(pgSql, params, (err, res) => {
         const context = {
           lastID: res && res.rows[0] ? res.rows[0].id : null
@@ -41,7 +43,7 @@ if (process.env.DATABASE_URL) {
       });
     },
     prepare: (sql) => {
-      const pgSql = convertPlaceholders(sql);
+      const pgSql = convertSqliteToPostgres(sql);
       const runs = [];
       return {
         run: (...args) => {
@@ -60,13 +62,12 @@ if (process.env.DATABASE_URL) {
         }
       };
     },
-    serialize: (fn) => fn(), // PostgreSQL doesn't need serialization locks
+    serialize: (fn) => fn(),
     close: (callback) => {
       pool.end(callback);
     }
   };
 } else {
-  // Development Environment: Connect to local SQLite file
   const dbPath = path.resolve(__dirname, '../portfolio.db');
   db = new sqlite3.Database(dbPath, (err) => {
     if (err) {

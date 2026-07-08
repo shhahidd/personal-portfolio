@@ -3,11 +3,9 @@ const db = require('./connection');
 db.serialize(() => {
   console.log('Starting database seeding...');
 
-  // 1. Drop existing tables if they exist (clean slate for learning/testing)
   db.run(`DROP TABLE IF EXISTS projects`);
   db.run(`DROP TABLE IF EXISTS messages`);
 
-  // 2. Create projects table
   db.run(`
     CREATE TABLE projects (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,7 +25,6 @@ db.serialize(() => {
     }
   });
 
-  // 3. Create messages table
   db.run(`
     CREATE TABLE messages (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
