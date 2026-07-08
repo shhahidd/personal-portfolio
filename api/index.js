@@ -9,6 +9,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+  if (!req.url.startsWith('/api') && (req.url.startsWith('/projects') || req.url.startsWith('/contact'))) {
+    req.url = '/api' + req.url;
+  }
+  next();
+});
+
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/api/projects', (req, res) => {
