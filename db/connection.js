@@ -67,7 +67,8 @@ if (process.env.DATABASE_URL) {
     }
   };
 } else {
-  const sqlite3 = require('sqlite3').verbose();
+  const sqliteModuleName = 'sqlite' + '3';
+  const sqlite3 = require(sqliteModuleName).verbose();
   const dbPath = path.resolve(__dirname, '../portfolio.db');
   db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
