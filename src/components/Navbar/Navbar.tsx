@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router";
 import {
   Navbar as BarrelrollaNavbar,
-  Button,
   NavbarBrand,
   NavbarLink,
   NavbarToggle,
@@ -47,17 +46,8 @@ export default function Navbar() {
         initial={{ opacity: 0, translateX: 100 }}
         animate={{ opacity: 1, translateX: 0 }}
         transition={transition}
-        className="flex flex-wrap items-center gap-4 md:w-[130px]"
+        className="flex flex-wrap items-center justify-end gap-4 md:w-[130px]"
       >
-        <Button
-          variant="outline"
-          as={Link}
-          to="/resume"
-          size="sm"
-          color="primary"
-        >
-          {navContent.resumeBtn}
-        </Button>
         <NavbarToggle />
       </motion.div>
     </BarrelrollaNavbar>
