@@ -1,10 +1,10 @@
 import thiranexLogo from "../assets/thiranex_logo.png";
-import resumeLogo from "../assets/resume_logo.jpg";
-import resumeLogoDark from "../assets/resume_logo_dark.jpg";
 import stAgnesLogo from "../assets/st_agnes_logo.png";
 import ecommerceWebAppImg from "../assets/ecommerce_web_app.png";
 import vehicleRecognitionImg from "../assets/vehicle_recognition_system.png";
 import attendanceCalculatorImg from "../assets/attendance_calculator.png";
+import biteriteImg from "../assets/biterite.png";
+
 
 
 import {
@@ -182,13 +182,15 @@ export const projectsData: BioDataType[] = [
   {
     id: "biterite",
     category: "projects",
-    img: resumeLogoDark,
-    imgDark: resumeLogo,
+    img: biteriteImg,
+    imgClass:
+      "object-cover transition scale-90 mt-6 group-hover:scale-100 group-focus-visible:scale-100",
+    bgColor: "#0f172a",
     title: "BiteRite Smart Nutrition",
     description:
       "AI-powered health and nutrition platform developed during a college Hackathon. Features calorie tracking, meal logging, fasting timer, sleep, workout, and Ollama-based meal generation.",
     fullInfo:
-      "Developed **BiteRite**, an AI-powered health and nutrition platform during a college Mini Hackathon, later winning **1st Prize** for innovation and implementation.<ol><li>Built a comprehensive nutrition dashboard featuring calorie tracking, meal logging, water intake, fasting timer, sleep, workout, and activity monitoring.</li><li>Implemented AI-powered features, including personalized nutrition recommendations, meal suggestions, and ingredient-based meal generation using **Phi-3 (Ollama)**.</li><li>Developed smart meal-planning tools such as an AI-based grocery list generator, \"My Fridge\" ingredient-based meal recommendations, and food nutrition search.</li><li>Built the application using **React, Node.js, Express, Supabase**, and **JSON/CSV datasets**, delivering a functional prototype within the hackathon timeframe.</li></ol>",
+      "Developed BiteRite, an AI-powered health and nutrition platform during a college Mini Hackathon, later winning **1st Prize** for innovation and implementation.<ol><li>Built a comprehensive nutrition dashboard featuring calorie tracking, meal logging, water intake, fasting timer, sleep, workout, and activity monitoring.</li><li>Implemented AI-powered features, including personalized nutrition recommendations, meal suggestions, and ingredient-based meal generation using **Phi-3 (Ollama)**.</li><li>Developed smart meal-planning tools such as an AI-based grocery list generator, \"My Fridge\" ingredient-based meal recommendations, and food nutrition search.</li><li>Built the application using **React, Node.js, Express, Supabase**, and **JSON/CSV datasets**, delivering a functional prototype within the hackathon timeframe.</li></ol>",
     website: "https://github.com/shhahidd/BiteRite",
     github: "https://github.com/shhahidd/BiteRite",
     dates: "",
