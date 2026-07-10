@@ -35,7 +35,7 @@ export const heroContent = {
 
 // Navbar & Footer General Labels
 export const navContent = {
-  brandName: "Shahid",
+  brandName: "<Shahid.P/>",
   resumeBtn: "View Resume",
 };
 
@@ -174,7 +174,7 @@ export const projectsData: BioDataType[] = [
     description:
       "Full-stack shopping application built with Node.js, Express.js, and JWT auth, featuring admin panel and Supabase/MySQL integration.",
     fullInfo:
-      "Developed a full-stack e-commerce web application using Node.js, Express.js, JavaScript, HTML, and CSS.<ol><li>Implemented JWT authentication, shopping cart, checkout, and order management features.</li><li>Built an admin dashboard for product and order management with CRUD functionality.</li><li>Integrated Supabase, MySQL, MongoDB, and JSON-based storage for flexible data management.</li><li>Designed a responsive user interface with product search, filtering, and inventory management.</li></ol>",
+      "Developed a full-stack e-commerce web application using Node.js, Express.js, JavaScript, HTML, and CSS.<ol><li>Implemented JWT authentication, shopping cart, checkout, and order management features.</li><li>Built an admin dashboard for product and order management with CRUD functionality.</li><li>Integrated Supabase, MySQL  and JSON-based storage for flexible data management.</li><li>Designed a responsive user interface with product search, filtering, and inventory management.</li></ol>",
     website: "https://corsair-e-commerce-web-app.vercel.app",
     github: "https://github.com/shhahidd/E-Commerce-Web-Application",
     dates: "",
@@ -191,7 +191,7 @@ export const projectsData: BioDataType[] = [
       "AI-powered health and nutrition platform developed during a college Hackathon. Features calorie tracking, meal logging, fasting timer, sleep, workout, and Ollama-based meal generation.",
     fullInfo:
       "Developed BiteRite, an AI-powered health and nutrition platform during a college Mini Hackathon, later winning 1st Prize for innovation and implementation.<ol><li>Built a comprehensive nutrition dashboard featuring calorie tracking, meal logging, water intake, fasting timer, sleep, workout, and activity monitoring.</li><li>Implemented AI-powered features, including personalized nutrition recommendations, meal suggestions, and ingredient-based meal generation using Phi-3 (Ollama).</li><li>Developed smart meal-planning tools such as an AI-based grocery list generator, \"My Fridge\" ingredient-based meal recommendations, and food nutrition search.</li><li>Built the application using React, Node.js, Express, Supabase, and JSON/CSV datasets, delivering a functional prototype within the hackathon timeframe.</li></ol>",
-    website: "https://github.com/shhahidd/BiteRite",
+    website: "https://bite-rite.vercel.app",
     github: "https://github.com/shhahidd/BiteRite",
     dates: "",
   },
