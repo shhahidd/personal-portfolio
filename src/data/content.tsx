@@ -42,7 +42,7 @@ export const navContent = {
 // Contacts Page Copy
 export const contactsContent = {
   heading: "Contact Me",
-  tagline: "I'm available on almost every platform. Send me a message and I'll reply within 24 hours. I can help with React, Node.js, FastAPI, PostgreSQL, and full-stack web development.",
+  tagline: "I'm available on almost every platform. Send me a message and I'll reply within 24 hours.",
   resumeCta: "See My Resume",
 };
 
@@ -190,7 +190,7 @@ export const projectsData: BioDataType[] = [
     description:
       "A web application designed for students to track daily attendance, manage schedule thresholds, and calculate the number of classes required to maintain a target percentage.",
     fullInfo:
-      "Developed a responsive React web application to calculate and track college/school attendance.<ol><li>Helps students track current attendance percentage and predict future status.</li><li>Calculates precisely how many classes can be safely skipped or must be attended to meet minimum percentage requirements.</li><li>Persists attendance data locally in the browser using LocalStorage.</li><li>Built clean, user-friendly UI utilizing TailwindCSS and modern UI elements.</li></ol>",
+      "Developed a responsive web application to calculate and track college/school attendance.<ol><li>Vibe-coded a responsive HTML, CSS, and JavaScript web application to help students calculate and manage their attendance.</li><li>Instantly calculates current attendance percentage based on classes attended and conducted.</li><li>Determines how many classes can be skipped or need to be attended to reach a target attendance percentage.</li><li>Features a clean, responsive interface optimized for desktop and mobile devices.</li></ol>",
     dates: "",
     website: "https://github.com/shhahidd/Attendance-Calculator",
     github: "https://github.com/shhahidd/Attendance-Calculator",
