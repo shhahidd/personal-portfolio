@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams, Link } from "react-router";
+import { useLocation, useParams } from "react-router";
 import {
   Button,
   Card,
