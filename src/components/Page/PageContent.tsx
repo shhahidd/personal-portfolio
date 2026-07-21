@@ -16,7 +16,7 @@ export default function PageContent({
     <div className={twMerge("w-full", className)} {...rest}>
       {title && (
         <>
-          <PageTitleWithDivider as={"h3"}>{title}</PageTitleWithDivider>
+          <PageTitleWithDivider as={"h2"}>{title}</PageTitleWithDivider>
         </>
       )}
       {children}
