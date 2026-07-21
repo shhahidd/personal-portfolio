@@ -76,7 +76,7 @@ export default function DetailsPage() {
               />
             </CardImageContainer>
           </Card>
-          <h2 className="text-2xl space font-medium">{data.title}</h2>
+          <h1 className="text-2xl space font-medium">{data.title}</h1>
           {data.specialty && (
             <p className="font-normal pb-4">{data.specialty}</p>
           )}
