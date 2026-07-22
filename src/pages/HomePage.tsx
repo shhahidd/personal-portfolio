@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Button, CaretIcon } from "@barrelrolla/react-components-library";
 import Experience from "../components/Content/Experience";
 import Hero from "../components/Hero/Hero";
@@ -10,8 +11,6 @@ import { HomePageContextProvider } from "../contexts.ts/HomaPageContext";
 import { homeSectionTitles } from "../data/content";
 
 export default function HomePage() {
-  document.title = "Shahid Patel | Portfolio";
-
   function checkNeedButton() {
     const innerHeight = window.innerHeight;
     let overMin = false;
@@ -46,6 +45,10 @@ export default function HomePage() {
 
   return (
     <BasePage>
+      <Helmet>
+        <title>Shahid Patel | Full Stack Developer</title>
+        <meta name="description" content="Aspiring full-stack developer skilled in React, Node.js, Python, and AI/ML tools. View my projects, experience, and resume." />
+      </Helmet>
       <HomePageContextProvider value={{ exists: true }}>
         <Hero />
         {needButton && (

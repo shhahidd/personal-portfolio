@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import {
   createBrowserRouter,
   NonIndexRouteObject,
@@ -58,12 +59,14 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeContextProvider value={{ buttonsRetainFocus: false }}>
-      <MotionConfig reducedMotion="user">
-        <RouterProvider router={router} />
-        <Analytics />
-        <SpeedInsights />
-      </MotionConfig>
-    </ThemeContextProvider>
+    <HelmetProvider>
+      <ThemeContextProvider value={{ buttonsRetainFocus: false }}>
+        <MotionConfig reducedMotion="user">
+          <RouterProvider router={router} />
+          <Analytics />
+          <SpeedInsights />
+        </MotionConfig>
+      </ThemeContextProvider>
+    </HelmetProvider>
   </StrictMode>,
 );
