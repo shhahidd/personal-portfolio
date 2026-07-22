@@ -3,12 +3,15 @@ import { motion } from "motion/react";
 import { Button } from "@barrelrolla/react-components-library";
 import { resumeContent, personalInfo } from "../data/content";
 import resumeImage from "../assets/ShahidPatel.jpg";
+import { Helmet } from "react-helmet-async";
 
 export default function ResumePage() {
-  document.title = `${personalInfo.fullName} | Resume`;
-
   return (
     <BasePage>
+      <Helmet>
+        <title>Resume | Shahid Patel</title>
+        <meta name="description" content="View and download the resume of Shahid Patel, an aspiring full-stack developer skilled in React, Node.js, and Python." />
+      </Helmet>
       <motion.section
         initial={{ opacity: 0, translateY: 30 }}
         animate={{ opacity: 1, translateY: 0 }}
